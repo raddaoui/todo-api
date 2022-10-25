@@ -1,11 +1,14 @@
 # todo-api
 a demo repo for creating a to-do api using Azure functions
 
-Let's first create our database where we will store all TODO tasks
 
-prerequisites
-python
-git
+### prerequisites
+        azure account and valid subscription
+        az cli installed
+        function core tools installed
+        git installed
+
+### Deployment steps
 
 1. define some variables
 
@@ -61,4 +64,12 @@ az storage account create --name $storage --location "$location" --resource-grou
 # Create a serverless function app in the resource group.
 echo "Creating $functionApp"
 az functionapp create --name $functionApp --storage-account $storage --consumption-plan-location "$location" --resource-group $resourceGroup --os-type Linux --functions-version 3 --runtime python --runtime-version 3.8
+
+# get the cosmosDB connection string
+connection_string=$(az cosmosdb keys list --name $account --resource-group $resourceGroup --type connection-strings -o yaml | grep connectionString.* | awk '{print $3}' | sed -n '2p')
+
+az functionapp config appsettings set --name $functionApp --resource-group $resourceGroup  --settings "AzureCosmosDBConnectionString=$connection_string"
+
+func azure functionapp publish $functionApp
+
 ```
