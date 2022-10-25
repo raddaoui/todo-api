@@ -1,0 +1,28 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "docs",
+      "databaseName": "todo-db-sql-cosmos",
+      "collectionName": "todo",
+      "sqlQuery": "SELECT * from c where c.dueDate = {dueDate}",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
+    }
+  ]
+}
