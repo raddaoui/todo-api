@@ -7,7 +7,7 @@ prerequisites
 python
 git
 
-1. define some variables
+#. define some variables
 
 ```bash
 # General variables
@@ -27,7 +27,7 @@ functionApp="todo-serverless-function-$randomIdentifier"
 skuStorage="Standard_LRS"
 ```
 
-1. change the active subscription using the subscription ID
+#. change the active subscription using the subscription ID
 ```bash
 az account set --subscription $subsciprtion_id
 ```
