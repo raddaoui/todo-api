@@ -7,7 +7,7 @@ prerequisites
 python
 git
 
-#. define some variables
+1. define some variables
 
 ```bash
 # General variables
@@ -32,13 +32,13 @@ skuStorage="Standard_LRS"
 az account set --subscription $subsciprtion_id
 ```
 
-1. Create a resource group
+2. Create a resource group
 ```bash
 echo "Creating $resourceGroup in $location..."
 az group create --name $resourceGroup --location "$location"
 ```
 
-1. Create a Cosmos account for SQL API, database and container
+3. Create a Cosmos account for SQL API, database and container
 ```bash
 echo "Creating $account"
 az cosmosdb create --name $account --resource-group $resourceGroup --locations regionName="$location"
@@ -52,7 +52,7 @@ echo "Creating $container"
 az cosmosdb sql container create --account-name $account --resource-group $resourceGroup --database-name $database --name $container --partition-key-path $partitionKey
 ```
 
-1. create Function App where we will deploy our functions
+4. create Function App where we will deploy our functions
 ```bash
 # a storage account is needed for function apps
 echo "Creating $storage"
