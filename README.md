@@ -1,11 +1,13 @@
 # todo-api
 a demo repo for creating a to-do api using Azure functions
 
-Let's first create our database where we will store all TODO tasks
 
-prerequisites
-python
-git
+### prerequisites
+        azure account and valid subscription
+        az cli installed
+        git installed
+
+### Deployment steps
 
 1. define some variables
 
