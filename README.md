@@ -27,18 +27,18 @@ functionApp="todo-serverless-function-$randomIdentifier"
 skuStorage="Standard_LRS"
 ```
 
-#. change the active subscription using the subscription ID
+2. change the active subscription using the subscription ID
 ```bash
 az account set --subscription $subsciprtion_id
 ```
 
-2. Create a resource group
+3. Create a resource group
 ```bash
 echo "Creating $resourceGroup in $location..."
 az group create --name $resourceGroup --location "$location"
 ```
 
-3. Create a Cosmos account for SQL API, database and container
+4. Create a Cosmos account for SQL API, database and container
 ```bash
 echo "Creating $account"
 az cosmosdb create --name $account --resource-group $resourceGroup --locations regionName="$location"
@@ -52,7 +52,7 @@ echo "Creating $container"
 az cosmosdb sql container create --account-name $account --resource-group $resourceGroup --database-name $database --name $container --partition-key-path $partitionKey
 ```
 
-4. create Function App where we will deploy our functions
+5. create Function App where we will deploy our functions
 ```bash
 # a storage account is needed for function apps
 echo "Creating $storage"
