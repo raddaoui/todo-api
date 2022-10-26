@@ -3,13 +3,10 @@ a demo repo for creating a to-do api using Azure functions
 
 
 ### prerequisites
-        azure account and valid subscription
-        az cli installed
-<<<<<<< HEAD
-        function core tools installed
-=======
->>>>>>> f168711be12e88f8c6210b97fdc5c8b1553f07c1
-        git installed
+        - azure account and valid subscription
+        - az cli installed
+        - function core tools installed
+        - git installed
 
 ### Deployment steps
 
